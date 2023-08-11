@@ -1,10 +1,16 @@
-import {useState} from 'react';
+import React, {useEffect} from 'react';
+import axios from 'axios';
+import Header from '../Header/Header';
+import Form from '../Form/Form';
+import List from '../List/List'
 
 function App () {
   
   return (
     <div>
-      <h1>TO DO APP</h1>
+      <Header />
+      <Form />
+      <List />
     </div>
   );
 
