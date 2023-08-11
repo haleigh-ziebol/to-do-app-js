@@ -30,15 +30,14 @@ router.post('/', (req, res) => {
 // PUT
 router.put('/:id', (req, res) => {
     let id = req.params.id;
-    let taskUpdate = req.body;
-    let queryText = `UPDATE "tasks" SET "complete" != "complete" WHERE "id" = $1;`;
-    pool.query(queryText, [taskUpdate.id]) //corresponds to $1
+    let queryText = `UPDATE "tasks" SET "complete" = NOT "complete" WHERE "id" = $1;`;
+    pool.query(queryText, [id]) //corresponds to $1
     .then((result) =>{
         res.sendStatus(200);
     })
     .catch((err) => {
         console.log(`Error making query ${queryText}`, err);
-        res.sendStatus(500)
+        res.sendStatus(500);
     })
   })// end PUT
 
@@ -52,7 +51,7 @@ router.delete('/:id', (req, res) => {
     })
     .catch((err) => {
         console.log(`Error making query ${queryText}`, err);
-        res.sendStatus(500)
+        res.sendStatus(500);
     })
   }) //end DELETE
 

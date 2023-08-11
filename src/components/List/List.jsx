@@ -21,7 +21,7 @@ function List () {
     }, [])
 
     const deleteTask = (evt) => {
-        const id = evt.currentTarget.id
+        const id = evt.currentTarget.parentElement.id
         console.log(id)
         axios.delete(`/todo/${id}`)
         .then(() => {
@@ -31,15 +31,26 @@ function List () {
         });
     }
 
-    const
+    const completeTask = (evt) => {
+        const id = evt.currentTarget.parentElement.id
+        console.log(id)
+        axios.put(`/todo/${id}`)
+        .then((response) => {
+            console.log(response);
+        List;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
 
     return (
         <section>
                 {taskArray.map(task => 
-                    (<div className ="task"> 
-                         <input type="checkbox" onClick={changeFormat}/>
+                    (<div className ="task" id={task.id}> 
+                         <input type="checkbox" onClick={completeTask}/>
                         <h1>Task: {task.name};    due: {task.duedate}</h1>
-                        <button onClick={deleteTask} id={task.id}>Delete Task</button>
+                        <button onClick={deleteTask}>Delete Task</button>
                     </div>))}
         </section>
     );

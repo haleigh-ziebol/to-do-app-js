@@ -12,12 +12,12 @@ function Form () {
         console.log(`The task is ${taskName} and the duedate is ${taskDuedate}`);
         axios.post('/todo', {name: taskName, duedate: taskDuedate})
         .then((response) => {
-        console.log(response);
-        evt.target.reset();
+            console.log(response);
+            evt.target.reset();
         List;
         })
         .catch((error) => {
-        console.log(error);
+            console.log(error);
         });
     }
   
