@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import List from '../List/List'
