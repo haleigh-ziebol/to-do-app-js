@@ -20,11 +20,27 @@ function List () {
         fetchTasks();
     }, [])
 
+    const deleteTask = (evt) => {
+        const id = evt.currentTarget.id
+        console.log(id)
+        axios.delete(`/todo/${id}`)
+        .then(() => {
+            fetchTasks();
+        }).catch((error) => {
+          console.log(error);
+        });
+    }
+
+    const
+
     return (
         <section>
-            <ul>
-                {taskArray.map(task => (<div id={task.id}>Task: {task.name} is due: {task.duedate}</div>))}
-            </ul>
+                {taskArray.map(task => 
+                    (<div className ="task"> 
+                         <input type="checkbox" onClick={changeFormat}/>
+                        <h1>Task: {task.name};    due: {task.duedate}</h1>
+                        <button onClick={deleteTask} id={task.id}>Delete Task</button>
+                    </div>))}
         </section>
     );
 
