@@ -1,12 +1,11 @@
 .task-checked {
-background-color: gray;
+background-color: rgb(51, 187, 197);
 }
 .task-unchecked{
-background-color: lightseagreen;
-}
-h1{
-color: darkblue;
-}
-h2{
-color: black
+background-color: rgb(133, 230, 197);
+border-style: dashed;
+border-color: rgb(200, 249, 255);
+border-width: 3px;
+margin-bottom: 4px;
+margin-top: 4px;
 }

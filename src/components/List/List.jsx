@@ -51,7 +51,7 @@ function List () {
     }
 
     return (
-        <section>
+        <section className="list">
                 {taskArray.map(task => 
                     (task.complete == false) ?
                         (<div className ="task-unchecked" id={task.id}> 
@@ -62,7 +62,7 @@ function List () {
                     :
                         (<div className ="task-checked" id={task.id} checked> 
                             <input type="checkbox" onClick={completeTask}/>
-                            <h2>Task: {task.name};    due: {task.duedate}</h2>
+                            <h1>Task: {task.name};    due: {task.duedate}</h1>
                             <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     )}
