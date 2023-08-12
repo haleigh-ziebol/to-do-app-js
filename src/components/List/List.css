@@ -1,0 +1,12 @@
+.task-checked {
+background-color: gray;
+}
+.task-unchecked{
+background-color: lightseagreen;
+}
+h1{
+color: darkblue;
+}
+h2{
+color: black
+}

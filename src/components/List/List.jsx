@@ -34,6 +34,12 @@ function List () {
     const completeTask = (evt) => {
         const id = evt.currentTarget.parentElement.id
         console.log(id)
+        if(evt.currentTarget.parentElement.className =="task-unchecked") {
+            evt.currentTarget.parentElement.className = "task-checked"
+        }
+        else {
+            evt.currentTarget.parentElement.className = "task-unchecked"
+        }
         axios.put(`/todo/${id}`)
         .then((response) => {
             console.log(response);
@@ -47,11 +53,20 @@ function List () {
     return (
         <section>
                 {taskArray.map(task => 
-                    (<div className ="task" id={task.id}> 
-                         <input type="checkbox" onClick={completeTask}/>
-                        <h1>Task: {task.name};    due: {task.duedate}</h1>
-                        <button onClick={deleteTask}>Delete Task</button>
-                    </div>))}
+                    (task.complete == false) ?
+                        (<div className ="task-unchecked" id={task.id}> 
+                            <input type="checkbox" onClick={completeTask} unchecked/>
+                            <h1>Task: {task.name};    due: {task.duedate}</h1>
+                            <button onClick={deleteTask}>Delete Task</button>
+                        </div>)
+                    :
+                        (<div className ="task-checked" id={task.id} checked> 
+                            <input type="checkbox" onClick={completeTask}/>
+                            <h2>Task: {task.name};    due: {task.duedate}</h2>
+                            <button onClick={deleteTask}>Delete Task</button>
+                        </div>)
+                    )}
+
         </section>
     );
 
