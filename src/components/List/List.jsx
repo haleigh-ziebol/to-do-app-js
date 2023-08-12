@@ -56,13 +56,13 @@ function List () {
                     (task.complete == false) ?
                         (<div className ="task-unchecked" id={task.id}> 
                             <input type="checkbox" onClick={completeTask} unchecked/>
-                            <h1>Task: {task.name};    due: {task.duedate}</h1>
+                            <h1>Task: {task.name}</h1> <h1>due: {task.duedate}</h1>
                             <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     :
                         (<div className ="task-checked" id={task.id} checked> 
                             <input type="checkbox" onClick={completeTask}/>
-                            <h1>Task: {task.name};    due: {task.duedate}</h1>
+                            <h1><strike>Task: {task.name}</strike></h1> <h1><strike>due: {task.duedate}</strike></h1>
                             <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     )}
