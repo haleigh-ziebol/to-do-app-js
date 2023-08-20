@@ -49,7 +49,7 @@ function List (props) {
         axios.put(`/todo/${id}`)
         .then((response) => {
             console.log(response);
-        List;
+            fetchTasks();
         })
         .catch((error) => {
             console.log(error);
