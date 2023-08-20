@@ -9,7 +9,7 @@ function List () {
         axios.get('/todo')
         .then((response) =>{
           console.log(response.data);
-          setTaskArray(response.data)
+          setTaskArray(response.data);
         })
         .catch((error) => {
           console.log(error)
@@ -54,16 +54,18 @@ function List () {
         <section className="list">
                 {taskArray.map(task => 
                     (task.complete == false) ?
-                        (<div className ="task-unchecked" id={task.id}> 
-                            <input type="checkbox" onClick={completeTask} unchecked/>
-                            <h1>Task: {task.name}</h1> <h1>due: {task.duedate}</h1>
-                            <button onClick={deleteTask}>Delete Task</button>
+                        (<div className ="task-unchecked" id={task.id} key={task.id}> 
+                            <input type="checkbox" onClick={completeTask} className="left" unchecked/>
+                            <div className="item"><h1>{task.name}</h1></div>
+                            <div className="item"><h1>{task.duedate}</h1></div>
+                            <button onClick={deleteTask} className="right">Delete Task</button>
                         </div>)
                     :
-                        (<div className ="task-checked" id={task.id} checked> 
-                            <input type="checkbox" onClick={completeTask}/>
-                            <h1><strike>Task: {task.name}</strike></h1> <h1><strike>due: {task.duedate}</strike></h1>
-                            <button onClick={deleteTask}>Delete Task</button>
+                        (<div className ="task-checked" id={task.id} key={task.id}> 
+                            <input type="checkbox" onClick={completeTask} className="left" checked/>
+                            <div className="item"><h1><strike>{task.name}</strike></h1></div>
+                            <div className="item"><h1><strike>{task.duedate}</strike></h1></div>
+                            <button onClick={deleteTask} className="right" >Delete Task</button>
                         </div>)
                     )}
 
