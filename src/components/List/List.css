@@ -2,7 +2,7 @@
 background-color: gray;
 color: rgb(97, 75, 195);
 display: grid;
-grid-template-columns: 1fr 2fr 2fr 1fr;
+grid-template-columns: 50px 2fr 2fr 1fr;
 }
 
 .task-unchecked{
@@ -14,5 +14,5 @@ margin-bottom: 4px;
 margin-top: 4px;
 color:  white;
 display: grid;
-grid-template-columns: 1fr 2fr 2fr 1fr;
+grid-template-columns: 50px 2fr 2fr 1fr;
 }

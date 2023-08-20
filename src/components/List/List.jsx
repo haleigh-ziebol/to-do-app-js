@@ -5,6 +5,7 @@ import './List.css'
 function List () {
     let [taskArray, setTaskArray] = useState([]);
     
+    //fetch tasks from DB
     const fetchTasks = () => {
         axios.get('/todo')
         .then((response) =>{
@@ -15,11 +16,13 @@ function List () {
           console.log(error)
         })
     }
-      
+
+    //runs fetchTasks when page loads 
     useEffect(() => {
         fetchTasks();
     }, [])
 
+    //delete task
     const deleteTask = (evt) => {
         const id = evt.currentTarget.parentElement.id
         console.log(id)
@@ -31,6 +34,7 @@ function List () {
         });
     }
 
+    //checking box feature
     const completeTask = (evt) => {
         const id = evt.currentTarget.parentElement.id
         console.log(id)
@@ -50,11 +54,18 @@ function List () {
         });
     }
 
-    //extract date from number
+    //extract date from number and report year if different than current
     const dateFormat = (prop) => {
+        const d = new Date();
+        let year = String(d.getFullYear());
         let monthList = [ "placeholder", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-        let date = String(prop).slice(0,10).split("-");
-        return (monthList[date[1]] +" "+ date[2] + ", " + date[0]);
+        let taskDate = String(prop).slice(0,10).split("-");
+        if (year == taskDate[0]){
+            return (monthList[taskDate[1]] +" "+ taskDate[2]);
+        }
+        else {
+            return (monthList[taskDate[1]] +" "+ taskDate[2] + ", " + taskDate[0]);
+        }
     }
 
     return (
