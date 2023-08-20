@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Form.css'
 import List from '../List/List'
 
-function Form () {
+function Form (props) {
     let [taskName, setTaskName] = useState('');
     let [taskDuedate, setTaskDuedate] = useState('');
     
@@ -14,7 +14,7 @@ function Form () {
         .then((response) => {
             console.log(response);
             evt.target.reset();
-        List;
+            props.setNewTask(true);
         })
         .catch((error) => {
             console.log(error);
@@ -25,9 +25,9 @@ function Form () {
         <section className="new-task-section">
             <form id="form" onSubmit={addTask}>
                 <label htmlFor="name-input">Task:</label>
-                <input id="name-input" onChange={e => setTaskName(e.target.value)} />
+                <input id="name-input" onChange={e => setTaskName(e.target.value)} required/>
                 <label htmlFor="duedate-input">Date Due:</label>
-                <input id="duedate-input" type="date" onChange={e => setTaskDuedate(e.target.value)} />
+                <input id="duedate-input" type="date" onChange={e => setTaskDuedate(e.target.value)} required />
                 <button type="submit">Enter Task</button>
             </form>
         </section>

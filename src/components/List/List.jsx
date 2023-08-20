@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './List.css'
 
-function List () {
+function List (props) {
     let [taskArray, setTaskArray] = useState([]);
     
     //fetch tasks from DB
@@ -20,7 +20,9 @@ function List () {
     //runs fetchTasks when page loads 
     useEffect(() => {
         fetchTasks();
-    }, [])
+        if(props.newTask)
+        fetchTasks();
+    }, [props.newTask])
 
     //delete task
     const deleteTask = (evt) => {
@@ -60,6 +62,7 @@ function List () {
         let year = String(d.getFullYear());
         let monthList = [ "placeholder", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
         let taskDate = String(prop).slice(0,10).split("-");
+        taskDate[1] = Number(taskDate[1])
         if (year == taskDate[0]){
             return (monthList[taskDate[1]] +" "+ taskDate[2]);
         }
