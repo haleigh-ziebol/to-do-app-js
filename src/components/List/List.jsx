@@ -50,22 +50,29 @@ function List () {
         });
     }
 
+    //extract date from number
+    const dateFormat = (prop) => {
+        let monthList = [ "placeholder", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        let date = String(prop).slice(0,10).split("-");
+        return (monthList[date[1]] +" "+ date[2] + ", " + date[0]);
+    }
+
     return (
         <section className="list">
                 {taskArray.map(task => 
                     (task.complete == false) ?
                         (<div className ="task-unchecked" id={task.id} key={task.id}> 
-                            <input type="checkbox" onClick={completeTask} className="left" unchecked/>
-                            <div className="item"><h1>{task.name}</h1></div>
-                            <div className="item"><h1>{task.duedate}</h1></div>
-                            <button onClick={deleteTask} className="right">Delete Task</button>
+                            <input type="checkbox" onClick={completeTask} unchecked/>
+                            <div><h1>{task.name}</h1></div>
+                            <div><h1>{dateFormat(task.duedate)}</h1></div>
+                            <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     :
                         (<div className ="task-checked" id={task.id} key={task.id}> 
-                            <input type="checkbox" onClick={completeTask} className="left" checked/>
-                            <div className="item"><h1><strike>{task.name}</strike></h1></div>
-                            <div className="item"><h1><strike>{task.duedate}</strike></h1></div>
-                            <button onClick={deleteTask} className="right" >Delete Task</button>
+                            <input type="checkbox" onClick={completeTask} checked/>
+                            <div><h1><strike>{task.name}</strike></h1></div>
+                            <div><h1><strike>{dateFormat(task.duedate)}</strike></h1></div>
+                            <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     )}
 

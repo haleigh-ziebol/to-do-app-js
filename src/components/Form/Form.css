@@ -13,3 +13,8 @@
     margin-right: 3vh;
     margin-bottom: 3vh;
   }
+
+  #form {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+  }
