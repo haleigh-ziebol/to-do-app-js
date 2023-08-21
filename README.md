@@ -11,7 +11,9 @@ This project takes input for a task and its duedate then stores it in a database
 
 ## Prerequisites
 Node.js
+
 PostgreSQL
+
 pgadmin 4
 
 ## Installation
