@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './Form.css'
-import List from '../List/List'
 
 function Form (props) {
     let [taskName, setTaskName] = useState('');
