@@ -61,7 +61,7 @@ function List (props) {
         let year = String(d.getFullYear());
         let monthList = [ "placeholder", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
         let taskDate = String(prop).slice(0,10).split("-");
-        taskDate[1] = Number(taskDate[1])
+        taskDate[1] = Number(taskDate[1]);
         if (year == taskDate[0]){
             return (monthList[taskDate[1]] +" "+ taskDate[2]);
         }
@@ -75,14 +75,14 @@ function List (props) {
                 {taskArray.map(task => 
                     (task.complete == false) ?
                         (<div className ="task-unchecked" id={task.id} key={task.id}> 
-                            <input type="checkbox" onChange={completeTask} unchecked/>
+                            <input type="checkbox" onChange={completeTask} checked={task.complete}/>
                             <div><h1>{task.name}</h1></div>
                             <div><h1>{dateFormat(task.duedate)}</h1></div>
                             <button onClick={deleteTask}>Delete Task</button>
                         </div>)
                     :
                         (<div className ="task-checked" id={task.id} key={task.id}> 
-                            <input type="checkbox" onChange={completeTask} checked/>
+                            <input type="checkbox" onChange={completeTask} checked={task.complete}/>
                             <div><h1><strike>{task.name}</strike></h1></div>
                             <div><h1><strike>{dateFormat(task.duedate)}</strike></h1></div>
                             <button onClick={deleteTask}>Delete Task</button>

@@ -10,7 +10,7 @@ function App () {
     <div className="App">
       <Header />
       <Form setNewTask={setNewTask}/>
-      <List newTask={newTask} setNewTask={setNewTask}/>
+      <List newTask={newTask} />
     </div>
   );
 
