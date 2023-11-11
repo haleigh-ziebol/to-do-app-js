@@ -16,9 +16,9 @@ pgadmin 4 <br />
 Create a database named `weekend-to-do-app`. <br />
 The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. <br />
 Open up your editor of choice and run an npm install. <br />
-Run npm run server in your terminal. <br />
-Run npm run client in your terminal. <br />
-The npm run client command will open up a new browser tab for you! <br />
+Run `npm run server` in your terminal. <br />
+Run `npm run client` in your terminal. <br />
+The `npm run client` command will open up a new browser tab for you! <br />
 
 ## Usage
 Enter a task name and due date, then click the 'Enter Task' button. <br />
