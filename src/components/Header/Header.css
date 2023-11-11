@@ -1,6 +1,13 @@
 .header {
-    background-color: rgb(97, 75, 195);
-    height: 70px;
-    padding: 20px;
-    color: rgb(200, 255, 224);
-  }
+  background-color: rgb(97, 75, 195);
+  height: 70px;
+  padding: 20px;
+  color: rgb(200, 255, 224);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header button {
+width: 100px;
+height: 20px;
+}

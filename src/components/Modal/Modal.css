@@ -1,0 +1,46 @@
+/*modal styling from Ania Kubow*/
+.modal-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    width: 80vw;
+    background-color:beige;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.05) 0 6px 24px 0,
+    rgba(0,0,0,0.08), 0 0 0 1px;
+}
+
+.form-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh;
+}
+
+.new-task-section {
+    padding: 5vh;
+    background-color: rgb(200, 255, 224);
+    color:  rgb(97, 75, 195);
+}
+  
+label {
+    margin-right: 1vh;
+    margin-bottom: 3vh;
+}
+  
+input {
+    padding: 3vh 3vh;
+}
+
+#form {
+    display: flex;
+    justify-content: space-between;
+}

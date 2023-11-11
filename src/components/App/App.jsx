@@ -1,16 +1,16 @@
 import React, { useState } from 'react';import Header from '../Header/Header';
-import Form from '../Form/Form';
-import List from '../List/List'
+import List from '../List/List';
+import Modal from '../Modal/Modal';
 
 function App () {
-  let [newTask, setNewTask] = useState(false);
+  let [newTask, setNewTask] = useState(0);
+
 
   
   return (
     <div className="App">
       <Header />
-      <Form setNewTask={setNewTask}/>
-      <List newTask={newTask} />
+      <List newTask={newTask}/>
     </div>
   );
 
