@@ -1,6 +1,4 @@
-# Project Name
-
-SQL To Do App 
+# SQL To Do App
 
 ## Description
 
